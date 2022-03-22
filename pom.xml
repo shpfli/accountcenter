@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>pers.hubery</groupId>
+    <artifactId>accountcenter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>accountcenter</name>
+    <description>Demo project for Spring Boot</description>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>app/accountcenter-bootstrap</module>
+        <module>app/accountcenter-test</module>
+        <module>app/accountcenter-biz</module>
+        <module>app/accountcenter-core</module>
+        <module>app/accountcenter-infra-dal</module>
+        <module>app/accountcenter-facade</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <accountcenter.version>0.0.1-SNAPSHOT</accountcenter.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-facade</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-bootstrap</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-biz</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-core</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-infra-dal</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pers.hubery</groupId>
+                <artifactId>accountcenter-test</artifactId>
+                <version>${accountcenter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
