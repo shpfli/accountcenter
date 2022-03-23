@@ -24,6 +24,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>pers.hubery</groupId>
