@@ -1,8 +1,9 @@
 package pers.hubery.accountcenter.infra.dal.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import pers.hubery.accountcenter.common.model.Account;
-import pers.hubery.accountcenter.infra.dal.dataobject.AccountDO;
+import pers.hubery.accountcenter.common.context.BizContextHolder;
+import pers.hubery.accountcenter.common.entity.Account;
+import pers.hubery.accountcenter.infra.dal.converter.AccountConverter;
 import pers.hubery.accountcenter.infra.dal.mapper.AccountMapper;
 import pers.hubery.accountcenter.infra.dal.repository.AccountRepository;
 
@@ -18,11 +19,19 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Autowired
     private AccountMapper accountMapper;
 
+    /**
+     * 根据账号获取账户
+     *
+     * @param accountNo 账号
+     * @return Account
+     */
     @Override
     public Account getAccount(final String accountNo) {
 
-        //AccountDO accountDO = accountMapper.selectByUK();
-
-        return null;
+        return AccountConverter.convert(
+                accountMapper.selectByUK(
+                        BizContextHolder.getTenantId(),
+                        BizContextHolder.getAccountBook(),
+                        accountNo));
     }
 }

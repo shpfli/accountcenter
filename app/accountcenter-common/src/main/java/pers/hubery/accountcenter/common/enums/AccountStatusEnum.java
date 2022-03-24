@@ -1,5 +1,7 @@
 package pers.hubery.accountcenter.common.enums;
 
+import java.util.Objects;
+
 /**
  * 账户状态枚举
  *
@@ -26,6 +28,22 @@ public enum AccountStatusEnum {
     AccountStatusEnum(final String code, final String desc) {
         this.code = code;
         this.desc = desc;
+    }
+
+    /**
+     * 根据枚举 code 获取枚举对象
+     *
+     * @param code 枚举 code
+     * @return 枚举对象
+     */
+    public static AccountStatusEnum getByCode(String code) {
+
+        for (AccountStatusEnum item : values()) {
+            if (Objects.equals(item.getCode(), code)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     /**

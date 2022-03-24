@@ -1,5 +1,6 @@
-package pers.hubery.accountcenter.common.model;
+package pers.hubery.accountcenter.common.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import pers.hubery.accountcenter.common.enums.AccountLimitedStatusEnum;
 import pers.hubery.accountcenter.common.enums.AccountStatusEnum;
@@ -11,10 +12,8 @@ import java.util.Date;
  * 账户VO
  */
 @Data
-public class Account implements Serializable {
-
-    /** serialVersionUID */
-    private static final long serialVersionUID = 1L;
+@Builder
+public class Account {
 
     /**
      * 租户ID
