@@ -1,10 +1,12 @@
 package pers.hubery.accountcenter.facade.dto;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 账户VO
+ *
+ * @author hubery
  */
 public class AccountInfo {
 

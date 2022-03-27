@@ -22,6 +22,7 @@ public class AccountQueryRequest extends AccountCenterBaseRequest {
      *
      * @return property value of accountBook
      */
+    @Override
     public String getAccountBook() {
         return accountBook;
     }
@@ -31,6 +32,7 @@ public class AccountQueryRequest extends AccountCenterBaseRequest {
      *
      * @param accountBook value to be assigned to property accountBook
      */
+    @Override
     public void setAccountBook(final String accountBook) {
         this.accountBook = accountBook;
     }

@@ -1,7 +1,5 @@
 package pers.hubery.accountcenter.infra.dal.mapper;
 
-import pers.hubery.accountcenter.infra.dal.dataobject.BalanceStatisticsDO;
-
 /**
 * @author hubery
 * @description 针对表【acc_balance_statistics(账户余额变动统计表)】的数据库操作Mapper

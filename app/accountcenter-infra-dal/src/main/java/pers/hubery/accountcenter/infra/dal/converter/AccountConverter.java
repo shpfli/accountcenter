@@ -23,7 +23,7 @@ public class AccountConverter {
      */
     public static Account convert(AccountDO accountDO) {
 
-        Account account = Account.builder()
+        return Account.builder()
                 .tenantId(accountDO.getTenantId())
                 .accountBook(accountDO.getAccountBook())
                 .accountNo(accountDO.getAccountNo())
@@ -33,7 +33,5 @@ public class AccountConverter {
                 .createdTime(new Date(accountDO.getCreatedTime()))
                 .modifiedTime(new Date(accountDO.getModifiedTime()))
                 .build();
-
-        return account;
     }
 }

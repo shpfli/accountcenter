@@ -5,11 +5,12 @@ import lombok.Data;
 import pers.hubery.accountcenter.common.enums.AccountLimitedStatusEnum;
 import pers.hubery.accountcenter.common.enums.AccountStatusEnum;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 账户VO
+ *
+ * @author hubery
  */
 @Data
 @Builder

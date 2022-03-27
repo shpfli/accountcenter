@@ -5,6 +5,9 @@ import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author hubery
+ */
 @MapperScans({
         @MapperScan(basePackages = "pers.hubery.accountcenter.infra.dal.mapper", sqlSessionFactoryRef = "accountcenterSqlSessionFactory")
 })

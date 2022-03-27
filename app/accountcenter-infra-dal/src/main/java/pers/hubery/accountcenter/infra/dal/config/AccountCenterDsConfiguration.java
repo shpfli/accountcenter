@@ -109,15 +109,9 @@ public class AccountCenterDsConfiguration {
         final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
 
-        //sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:mapper/*.xml"));
-
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setMapUnderscoreToCamelCase(true);
         sqlSessionFactoryBean.setConfiguration(configuration);
-
-        //MapperScannerConfigurer configurer = new MapperScannerConfigurer();
-        //configurer.setBasePackage("pers.hubery.accountcenter.infra.dal.mapper");
-        //configurer.setSqlSessionFactoryBeanName("");
 
         return sqlSessionFactoryBean.getObject();
     }

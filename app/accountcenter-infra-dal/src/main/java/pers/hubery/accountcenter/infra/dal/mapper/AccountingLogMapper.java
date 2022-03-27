@@ -1,7 +1,5 @@
 package pers.hubery.accountcenter.infra.dal.mapper;
 
-import pers.hubery.accountcenter.infra.dal.dataobject.AccountingLogDO;
-
 /**
  * @author hubery
  * @description 针对表【acc_accounting_log(账务流水表)】的数据库操作Mapper

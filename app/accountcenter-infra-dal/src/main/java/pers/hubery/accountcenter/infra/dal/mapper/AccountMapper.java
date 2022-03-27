@@ -1,6 +1,8 @@
 package pers.hubery.accountcenter.infra.dal.mapper;
 
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import pers.hubery.accountcenter.infra.dal.dataobject.AccountDO;
 
 /**

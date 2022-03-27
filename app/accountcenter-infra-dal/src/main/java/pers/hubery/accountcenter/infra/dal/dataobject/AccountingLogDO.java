@@ -1,9 +1,14 @@
 package pers.hubery.accountcenter.infra.dal.dataobject;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.io.Serializable;
 
 /**
  * 账务流水表
+ *
+ * @author hubery
  * @TableName acc_accounting_log
  */
 public class AccountingLogDO implements Serializable {
@@ -482,5 +487,16 @@ public class AccountingLogDO implements Serializable {
      */
     public void setModifiedTime(Long modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    /**
+     * returns a string representation of the object.
+     *
+     * @return a string representation of the object.
+     * @see Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SIMPLE_STYLE);
     }
 }

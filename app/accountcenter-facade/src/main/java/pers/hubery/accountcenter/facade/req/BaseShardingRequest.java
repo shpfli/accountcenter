@@ -6,7 +6,7 @@ package pers.hubery.accountcenter.facade.req;
  * @author hubery
  * @version ShardingRequest.java v1.0 2022-03-27 21:27
  */
-public abstract class ShardingBaseRequest extends BaseRequest {
+public abstract class BaseShardingRequest extends BaseRequest {
 
     /** serialVersionUID */
     private static final long serialVersionUID = 4938952937847392668L;

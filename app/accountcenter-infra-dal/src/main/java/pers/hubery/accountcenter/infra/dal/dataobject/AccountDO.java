@@ -1,13 +1,18 @@
 package pers.hubery.accountcenter.infra.dal.dataobject;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.io.Serializable;
 
 /**
  * 账户表
  *
+ * @author hubery
  * @TableName acc_account
  */
 public class AccountDO implements Serializable {
+
     /**
      * 自增物理主键，业务不得使用
      */
@@ -179,5 +184,16 @@ public class AccountDO implements Serializable {
      */
     public void setModifiedTime(Long modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    /**
+     * returns a string representation of the object.
+     *
+     * @return a string representation of the object.
+     * @see Object#toString()
+     */
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SIMPLE_STYLE);
     }
 }

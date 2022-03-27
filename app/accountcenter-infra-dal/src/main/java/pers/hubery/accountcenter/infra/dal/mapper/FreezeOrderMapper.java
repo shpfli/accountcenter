@@ -1,7 +1,5 @@
 package pers.hubery.accountcenter.infra.dal.mapper;
 
-import pers.hubery.accountcenter.infra.dal.dataobject.FreezeOrderDO;
-
 /**
 * @author hubery
 * @description 针对表【acc_freeze_order(账户余额表)】的数据库操作Mapper
