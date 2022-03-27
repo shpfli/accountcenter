@@ -1,6 +1,8 @@
 package pers.hubery.accountcenter.infra.dal.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import pers.hubery.accountcenter.common.context.BizContextHolder;
 import pers.hubery.accountcenter.common.entity.Account;
 import pers.hubery.accountcenter.infra.dal.converter.AccountConverter;
@@ -13,10 +15,12 @@ import pers.hubery.accountcenter.infra.dal.repository.AccountRepository;
  * @author hubery
  * @version AccountRepositoryImpl.java v1.0 2022-03-24 10:16
  */
+@Repository("accountRepository")
 public class AccountRepositoryImpl implements AccountRepository {
 
     /** accountMapper */
     @Autowired
+    @Qualifier("accountMapper")
     private AccountMapper accountMapper;
 
     /**

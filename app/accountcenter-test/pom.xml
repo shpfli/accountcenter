@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>accountcenter</artifactId>
+        <artifactId>accountcenter-parent</artifactId>
         <groupId>pers.hubery</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
@@ -25,11 +25,26 @@
         </dependency>
 
         <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>2.0-groovy-3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>2.0-groovy-3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--    velocity    -->
+        <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
         </dependency>
 
-
+        <!--  模块依赖  -->
         <dependency>
             <groupId>pers.hubery</groupId>
             <artifactId>accountcenter-bootstrap</artifactId>
