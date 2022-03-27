@@ -22,7 +22,7 @@ public abstract class BaseResponse {
      *
      * @return property value of success
      */
-    public boolean getSuccess() {
+    public boolean isSuccess() {
         return success;
     }
 

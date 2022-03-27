@@ -23,6 +23,10 @@ public class AccountConverter {
      */
     public static Account convert(AccountDO accountDO) {
 
+        if (accountDO == null) {
+            return null;
+        }
+
         return Account.builder()
                 .tenantId(accountDO.getTenantId())
                 .accountBook(accountDO.getAccountBook())
