@@ -23,6 +23,9 @@ public enum ErrorCodeEnum {
     /** accountNo 不能为空 */
     ACCOUNT_NOT_EXISTS("ACCOUNT_NO_CANNOT_BE_NULL", "accountNo 不能为空！"),
 
+    /** 数据库异常 */
+    DB_EXCEPTION("DB_EXCEPTION", "数据库异常！"),
+
     /** 未知异常 */
     UNKNOWN_EXCEPTION("UNKNOWN_EXCEPTION", "未知异常！"),
 

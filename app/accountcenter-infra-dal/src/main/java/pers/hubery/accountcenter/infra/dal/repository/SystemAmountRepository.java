@@ -23,29 +23,26 @@ public interface SystemAmountRepository {
      * find all matching SystemAmounts by xid and accountBook
      *
      * @param xid         xid
-     * @param accountBook accountBook
      * @return systemAmountList
      */
-    List<SystemAmount> findByXidAndAccountBook(String xid, String accountBook);
+    List<SystemAmount> findByXid(String xid);
 
     /**
      * find system amount records
      *
      * @param xid         xid
-     * @param accountBook account book
      * @param accountNo   account no
      * @param balanceType balance type
      * @return records
      */
-    List<SystemAmount> find(String xid, String accountBook, String accountNo, String balanceType);
+    List<SystemAmount> find(String xid, String accountNo, String balanceType);
 
     /**
      * delete all matching SystemAmounts by xid and accountBook
+     *  @param xid         xid
      *
-     * @param xid         xid
-     * @param accountBook accountBook
      */
-    void deleteByXidAndAccountBook(String xid, String accountBook);
+    void deleteByXid(String xid);
 
     /**
      * delete specified record

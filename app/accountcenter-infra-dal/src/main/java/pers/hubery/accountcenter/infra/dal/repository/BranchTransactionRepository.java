@@ -23,10 +23,9 @@ public interface BranchTransactionRepository {
      * select by xid and accountBook
      *
      * @param xid         TCC main transaction ID
-     * @param accountBook account book, such as : deposit, loan, ……
      * @return branch transaction List
      */
-    List<BranchTransaction> selectByXidAndAccountBook(String xid, String accountBook);
+    List<BranchTransaction> findByXid(String xid);
 
     /**
      * select BranchTransaction by reqBizNo
@@ -38,11 +37,10 @@ public interface BranchTransactionRepository {
 
     /**
      * delete by xid and accountBook
+     *  @param xid         TCC main transaction ID
      *
-     * @param xid         TCC main transaction ID
-     * @param accountBook account book, such as : deposit, loan, ……
      */
-    void delete(String xid, String accountBook);
+    void delete(String xid);
 
 }
 
