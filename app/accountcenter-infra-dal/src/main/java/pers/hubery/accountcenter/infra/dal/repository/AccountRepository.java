@@ -1,6 +1,6 @@
 package pers.hubery.accountcenter.infra.dal.repository;
 
-import pers.hubery.accountcenter.common.entity.Account;
+import pers.hubery.accountcenter.common.model.Account;
 
 /**
  * 账户仓库

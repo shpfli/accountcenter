@@ -6,9 +6,9 @@ import java.util.Objects;
  * 分布式事务状态枚举
  *
  * @author LiPengfei
- * @version TccTransactionStatus.java v1.0 2022-03-30 18:32
+ * @version TccTransactionStatusEnum.java v1.0 2022-03-30 18:32
  */
-public enum TccTransactionStatus {
+public enum TccTransactionStatusEnum {
 
     /** 预处理阶段 */
     PREPARED("P", "PREPARED"),
@@ -32,7 +32,7 @@ public enum TccTransactionStatus {
      * @param code        枚举值编码
      * @param description 枚举描述
      */
-    TccTransactionStatus(final String code, final String description) {
+    TccTransactionStatusEnum(final String code, final String description) {
         this.code = code;
         this.description = description;
     }
@@ -43,12 +43,12 @@ public enum TccTransactionStatus {
      * @param code 枚举编码值
      * @return 枚举实例
      */
-    public static TccTransactionStatus getByCode(String code) {
+    public static TccTransactionStatusEnum getByCode(String code) {
         if (null == code) {
             return null;
         }
 
-        for (TccTransactionStatus e : values()) {
+        for (TccTransactionStatusEnum e : values()) {
             if (Objects.equals(e.getCode(), code)) {
                 return e;
             }

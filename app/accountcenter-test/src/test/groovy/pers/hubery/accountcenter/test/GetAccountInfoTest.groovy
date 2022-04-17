@@ -1,13 +1,12 @@
 package pers.hubery.accountcenter.test
 
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import pers.hubery.accountcenter.AccountcenterApplication;
+import pers.hubery.accountcenter.AccountcenterApplication
 import pers.hubery.accountcenter.facade.AccountQueryFacade
-import pers.hubery.accountcenter.facade.req.AccountQueryRequest;
-import spock.lang.Specification;
-import spock.lang.Unroll;
+import pers.hubery.accountcenter.facade.req.AccountQueryRequest
+import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * @author hubery
@@ -34,7 +33,7 @@ public class GetAccountInfoTest extends Specification {
         }
 
         where: "测试场景"
-        caseDesc | tenantId   | accountBook | shardingIndex | accountNo                          | isSuccess
-        "正常用例"   | "00000000" | "DEPOSIT"   | "00"          | "00000000000000000000000000000000" | true
+        caseDesc | tenantId | accountBook | shardingIndex | accountNo                          | isSuccess
+        "正常用例"   | "TEST"   | "DEPOSIT"   | "00"          | "00000000000000000000000000000000" | true
     }
 }

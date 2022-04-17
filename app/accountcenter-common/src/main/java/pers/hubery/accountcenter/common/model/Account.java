@@ -1,4 +1,4 @@
-package pers.hubery.accountcenter.common.entity;
+package pers.hubery.accountcenter.common.model;
 
 import lombok.Builder;
 import lombok.Data;

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import pers.hubery.accountcenter.biz.tpl.AccountCenterServiceCallback;
 import pers.hubery.accountcenter.biz.tpl.AccountCenterServiceTemplate;
-import pers.hubery.accountcenter.common.entity.Account;
+import pers.hubery.accountcenter.common.model.Account;
 import pers.hubery.accountcenter.common.enums.ErrorCodeEnum;
 import pers.hubery.accountcenter.common.err.BizException;
 import pers.hubery.accountcenter.common.util.Asserter;

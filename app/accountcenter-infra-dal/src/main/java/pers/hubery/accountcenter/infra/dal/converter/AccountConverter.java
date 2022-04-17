@@ -1,6 +1,6 @@
 package pers.hubery.accountcenter.infra.dal.converter;
 
-import pers.hubery.accountcenter.common.entity.Account;
+import pers.hubery.accountcenter.common.model.Account;
 import pers.hubery.accountcenter.common.enums.AccountLimitedStatusEnum;
 import pers.hubery.accountcenter.common.enums.AccountStatusEnum;
 import pers.hubery.accountcenter.infra.dal.dataobject.AccountDO;

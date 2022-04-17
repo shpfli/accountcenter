@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import pers.hubery.accountcenter.common.context.BizContextHolder;
-import pers.hubery.accountcenter.common.entity.Account;
+import pers.hubery.accountcenter.common.model.Account;
 import pers.hubery.accountcenter.infra.dal.converter.AccountConverter;
 import pers.hubery.accountcenter.infra.dal.mapper.AccountMapper;
 import pers.hubery.accountcenter.infra.dal.repository.AccountRepository;
