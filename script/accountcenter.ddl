@@ -1,7 +1,53 @@
 drop database if exists accountcenter;
 create database accountcenter;
+
 use accountcenter;
 
+
+drop table if exists tcc_main_transaction;
+create table tcc_main_transaction
+(
+    tenant_id    varchar(8)   not null comment '租户ID',
+    xid          varchar(128) not null comment 'TCC事务 ID',
+    account_book varchar(10)  not null comment 'account book, such as : deposit, loan, ……',
+    status       char         not null comment '事务状态：P-预处理，R-已回滚，C-已提交',
+    create_time  bigint       null comment '创建时间（毫秒数）',
+    modify_time  bigint       null comment '修改时间（毫秒数）',
+    primary key (tenant_id, xid, account_book),
+    key idx_tcc_transaction_info (tenant_id, status, create_time)
+)
+    comment 'TCC 主事务表' charset = utf8mb4;
+
+drop table if exists tcc_branch_transaction;
+create table tcc_branch_transaction
+(
+    id                 bigint unsigned auto_increment comment 'id' primary key,
+    tenant_id          varchar(8)     not null comment '租户ID',
+    req_biz_no         varchar(128)   not null comment 'business seq no, used to identify a request in biz sight',
+    xid                varchar(128)   not null comment 'TCC main transaction ID',
+    branch_id          bigint default null comment 'TCC branch transaction ID',
+    account_book       varchar(10)    not null comment 'account book, such as : deposit, loan, ……',
+    acct_no            varchar(50)    not null comment 'account number',
+    balance_type       varchar(10)    not null comment 'balance type',
+    account_date       varchar(8)     not null comment 'account date',
+    business_timestamp bigint         not null comment 'the timestamp of the business happened',
+    ccy                varchar(3)     not null comment 'Currencies',
+    action             varchar(8)     not null comment 'action type, such as: IN, OUT, FREEZE, UNFREEZE',
+    amount             decimal(21, 4) not null comment 'changed amount',
+    reference_no       varchar(32)    not null comment 'business reference number',
+    memo               varchar(128)   null comment 'the memo',
+    channel            varchar(16)    null comment 'channel',
+    src_channel        varchar(16)    null comment 'src channel',
+    src_channel_biz_no varchar(128)   null comment 'src channel biz no',
+    operator           varchar(8)     null comment 'operator',
+    auth_user_id       varchar(8)     null comment 'authUserId',
+    from_app_name      varchar(64)    null comment 'fromAppName',
+    create_timestamp   bigint         null comment 'create timestamp',
+    update_timestamp   bigint         null comment 'update timestamp',
+    unique key uk_bal_transaction_record (tenant_id, req_biz_no),
+    key idx_bal_transaction_record (tenant_id, xid, account_book)
+)
+    comment 'TCC 分支事务表' charset = utf8mb4;
 
 drop table if exists acc_account;
 create table acc_account

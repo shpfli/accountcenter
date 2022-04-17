@@ -22,7 +22,7 @@ public enum AccountLimitedStatusEnum {
     /** 不进不出 */
     NEITHER_IN_NOR_OUT("11", "NEITHER_IN_NOR_OUT");
 
-    /** enum code */
+    /** 枚举编码值 */
     private final String code;
 
     /** enum description */

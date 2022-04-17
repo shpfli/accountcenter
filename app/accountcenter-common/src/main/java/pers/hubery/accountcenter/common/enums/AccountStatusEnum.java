@@ -10,16 +10,16 @@ import java.util.Objects;
  */
 public enum AccountStatusEnum {
 
-    /** ACTIVE */
+    /** 激活状态 */
     ACTIVE("A", "ACTIVE"),
 
-    /** INACTIVE */
+    /** 失效状态 */
     INACTIVE("I", "INACTIVE"),
 
-    /** CANCELED */
+    /** 销户状态 */
     CANCEL("C", "CANCELED");
 
-    /** enum code */
+    /** 枚举编码值 */
     private final String code;
 
     /** enum description */
