@@ -30,7 +30,7 @@ public class AccountRepositoryImpl implements AccountRepository {
      * @return Account
      */
     @Override
-    public Account getAccount(final String accountNo) {
+    public Account get(final String accountNo) {
 
         return AccountConverter.convert(
                 accountMapper.selectByUK(

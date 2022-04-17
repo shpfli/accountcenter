@@ -53,7 +53,7 @@ public class AccountQueryFacadeImpl implements AccountQueryFacade {
 
             @Override
             public void doService() {
-                AccountInfo accountInfo = convert(accountRepository.getAccount(request.getAccountNo()));
+                AccountInfo accountInfo = convert(accountRepository.get(request.getAccountNo()));
 
                 if (accountInfo == null) {
                     throw new BizException(ErrorCodeEnum.ACCOUNT_NOT_EXISTS, "账户不存在！accountNo: " + request.getAccountNo());

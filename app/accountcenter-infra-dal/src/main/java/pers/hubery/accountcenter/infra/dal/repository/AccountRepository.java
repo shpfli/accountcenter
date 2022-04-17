@@ -16,5 +16,5 @@ public interface AccountRepository {
      * @param accountNo 账号
      * @return Account
      */
-    Account getAccount(String accountNo);
+    Account get(String accountNo);
 }
