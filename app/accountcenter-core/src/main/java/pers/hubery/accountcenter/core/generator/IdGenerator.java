@@ -1,4 +1,4 @@
-package pers.hubery.accountcenter.core.service;
+package pers.hubery.accountcenter.core.generator;
 
 /**
  * IDGenerator

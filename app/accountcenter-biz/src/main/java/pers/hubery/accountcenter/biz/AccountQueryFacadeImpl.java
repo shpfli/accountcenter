@@ -43,7 +43,7 @@ public class AccountQueryFacadeImpl implements AccountQueryFacade {
         AccountCenterServiceTemplate.process(request, response, new AccountCenterServiceCallback() {
             @Override
             public void validateRequest() {
-                Asserter.assertNotBlank(request.getAccountNo(), ErrorCodeEnum.ACCOUNT_NO_CANNOT_BE_NULL);
+                Asserter.assertNotBlank(request.getAccountNo(), ErrorCodeEnum.ACCOUNT_NO_CANNOT_BE_BLANK);
             }
 
             @Override

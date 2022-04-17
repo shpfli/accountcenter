@@ -48,7 +48,7 @@ public class AccountCenterServiceTemplate {
             // 3. 业务校验
             callback.doBizCheck();
 
-            // 4. 执行 service
+            // 4. 执行 generator
             callback.doService();
 
             // 设置处理成功

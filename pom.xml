@@ -65,6 +65,14 @@
                 <version>${spring-boot.autoconfigure.version}</version>
             </dependency>
 
+            <!--      seata      -->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-all</artifactId>
+                <version>1.4.2</version>
+            </dependency>
+
+
             <!--commons-lang3-->
             <dependency>
                 <groupId>org.apache.commons</groupId>

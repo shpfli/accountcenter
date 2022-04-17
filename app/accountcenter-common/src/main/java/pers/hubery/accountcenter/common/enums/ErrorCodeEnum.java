@@ -8,6 +8,9 @@ package pers.hubery.accountcenter.common.enums;
  */
 public enum ErrorCodeEnum {
 
+    /** 请求对象不能为空 */
+    REQUEST_CANNOT_BE_NULL("REQUEST_CANNOT_BE_NULL", "请求对象不能为空"),
+
     /** tenantId 不能为空 */
     TENANT_ID_CANNOT_BE_NULL("TENANT_ID_CANNOT_BE_NULL", "tenantId 不能为空！"),
 
@@ -18,10 +21,39 @@ public enum ErrorCodeEnum {
     ACCOUNT_BOOK_CANNOT_BE_NULL("ACCOUNT_BOOK_CANNOT_BE_NULL", "accountBook 不能为空！"),
 
     /** accountNo 不能为空 */
-    ACCOUNT_NO_CANNOT_BE_NULL("ACCOUNT_NO_CANNOT_BE_NULL", "accountNo 不能为空！"),
+    ACCOUNT_NO_CANNOT_BE_BLANK("ACCOUNT_NO_CANNOT_BE_BLANK", "accountNo 不能为空！"),
+
+    /** 记账指令不能为空 */
+    ACCOUNTING_COMMAND_CANNOT_BE_NULL("ACCOUNTING_COMMAND_CANNOT_BE_NULL", "记账指令不能为空！"),
+
+    /** 业务流水号不能为空 */
+    BIZ_SEQ_NO_CANNOT_BE_BLANK("BIZ_SEQ_NO_CANNOT_BE_BLANK", "业务流水号不能为空"),
+
+    /** xid不能为空 */
+    XID_CANNOT_BE_BLANK("XID_CANNOT_BE_BLANK", "xid 不能为空"),
 
     /** accountNo 不能为空 */
     ACCOUNT_NOT_EXISTS("ACCOUNT_NO_CANNOT_BE_NULL", "accountNo 不能为空！"),
+
+    // 业务异常
+    /** 事务已经被回滚 */
+    TRANSACTION_HAS_ALREADY_BEEN_ROLLBACK("90001", "事务已经被回滚"),
+
+    /** 事务已经被提交 */
+    TRANSACTION_HAS_ALREADY_BEEN_COMMIT("90002", "事务已经被提交"),
+
+    /** 空提交 */
+    EMPTY_COMMIT("90003", "空提交"),
+
+    /** 分支事务不存在 */
+    BRANCH_TRANSACTION_NOT_FOUND("90004", "分支事务不存在"),
+
+    /** 记账指令不存在 */
+    NO_ACCOUNTING_COMMAND_FOUND("90005", "记账指令不存在"),
+
+    //系统异常
+    /** 内存余额与DB中不一致 */
+    BALANCE_IS_NOT_CONSISTENT_WITH_DB("BALANCE_IS_NOT_CONSISTENT_WITH_DB", "内存余额与DB中不一致"),
 
     /** 数据库异常 */
     DB_EXCEPTION("DB_EXCEPTION", "数据库异常！"),

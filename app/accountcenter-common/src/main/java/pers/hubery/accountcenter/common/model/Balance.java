@@ -26,7 +26,7 @@ public class Balance {
     /**
      * account number
      */
-    private String acctNo;
+    private String accountNo;
 
     /**
      * balance type
@@ -96,17 +96,17 @@ public class Balance {
      *
      * @return property value of acctNo
      */
-    public String getAcctNo() {
-        return acctNo;
+    public String getAccountNo() {
+        return accountNo;
     }
 
     /**
      * Setter method for property <tt>acctNo</tt>.
      *
-     * @param acctNo value to be assigned to property acctNo
+     * @param accountNo value to be assigned to property acctNo
      */
-    public void setAcctNo(final String acctNo) {
-        this.acctNo = acctNo;
+    public void setAccountNo(final String accountNo) {
+        this.accountNo = accountNo;
     }
 
     /**
@@ -279,8 +279,8 @@ public class Balance {
 
         final Balance balance1 = (Balance) o;
 
-        return new EqualsBuilder().append(getAccountBook(), balance1.getAccountBook()).append(getAcctNo(),
-                        balance1.getAcctNo()).append(getBalanceType(), balance1.getBalanceType()).append(getBalance(),
+        return new EqualsBuilder().append(getAccountBook(), balance1.getAccountBook()).append(getAccountNo(),
+                        balance1.getAccountNo()).append(getBalanceType(), balance1.getBalanceType()).append(getBalance(),
                         balance1.getBalance())
                 .append(
                         getPrevBalance(), balance1.getPrevBalance()).append(getUnreachedAmt(), balance1.getUnreachedAmt()).append(
@@ -292,7 +292,7 @@ public class Balance {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(getAccountBook()).append(getAcctNo()).append(getBalanceType()).append(getBalance())
+        return new HashCodeBuilder(17, 37).append(getAccountBook()).append(getAccountNo()).append(getBalanceType()).append(getBalance())
                 .append(
                         getPrevBalance()).append(getUnreachedAmt()).append(getReserveAmt()).append(getFrozenAmt()).append(
                         getOverdraftLimit()).append(

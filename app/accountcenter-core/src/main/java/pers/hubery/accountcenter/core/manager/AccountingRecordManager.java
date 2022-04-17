@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import pers.hubery.accountcenter.common.model.AccountingCommand;
 import pers.hubery.accountcenter.common.model.AccountingRecord;
 import pers.hubery.accountcenter.common.money.Money;
-import pers.hubery.accountcenter.core.service.IdGenerator;
+import pers.hubery.accountcenter.core.generator.IdGenerator;
 import pers.hubery.accountcenter.infra.dal.repository.AccountingRecordRepository;
 
 import java.util.UUID;
