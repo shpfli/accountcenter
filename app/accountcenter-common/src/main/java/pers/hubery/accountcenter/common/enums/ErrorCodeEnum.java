@@ -55,6 +55,9 @@ public enum ErrorCodeEnum {
     /** 内存余额与DB中不一致 */
     BALANCE_IS_NOT_CONSISTENT_WITH_DB("BALANCE_IS_NOT_CONSISTENT_WITH_DB", "内存余额与DB中不一致"),
 
+    /** sharding 路由异常 */
+    SHARDING_ROUTE_ERROR("SHARDING_ROUTE_ERROR", "sharding 路由异常"),
+
     /** 数据库异常 */
     DB_EXCEPTION("DB_EXCEPTION", "数据库异常！"),
 
@@ -100,4 +103,5 @@ public enum ErrorCodeEnum {
     public String getDefaultMessage() {
         return defaultMessage;
     }
+
 }

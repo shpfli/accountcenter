@@ -40,6 +40,8 @@
 
         <mysql-connector.version>5.1.49</mysql-connector.version>
         <mybatis-spring-boot-starter.version>2.1.4</mybatis-spring-boot-starter.version>
+
+        <mybatis.plus.version>3.5.0</mybatis.plus.version>
     </properties>
 
     <dependencyManagement>
@@ -72,6 +74,12 @@
                 <version>1.4.2</version>
             </dependency>
 
+            <!--sharding-->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>4.1.1</version>
+            </dependency>
 
             <!--commons-lang3-->
             <dependency>
@@ -107,6 +115,14 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
+
+            <!-- mybatis plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
 
             <!--velocity-->
             <dependency>

@@ -33,7 +33,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     public Account get(final String accountNo) {
 
         return AccountConverter.convert(
-                accountMapper.selectByUK(
+                accountMapper.get(
                         BizContextHolder.getTenantId(),
                         BizContextHolder.getAccountBook(),
                         accountNo));

@@ -67,4 +67,20 @@ public class BizContextHolder {
 
         return bizContext.getTenantId();
     }
+
+    /**
+     * 从上下文中获取 shardingIndex
+     *
+     * @return shardingIndex
+     */
+    public static String getShardingIndex() {
+
+        BizContext bizContext = get();
+
+        if (bizContext == null) {
+            return null;
+        }
+
+        return bizContext.getShardingIndex();
+    }
 }

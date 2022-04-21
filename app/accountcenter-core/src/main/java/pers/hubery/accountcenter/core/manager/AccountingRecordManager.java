@@ -3,10 +3,10 @@ package pers.hubery.accountcenter.core.manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pers.hubery.accountcenter.common.model.AccountingCommand;
-import pers.hubery.accountcenter.common.model.AccountingRecord;
+import pers.hubery.accountcenter.common.model.AccountingLog;
 import pers.hubery.accountcenter.common.money.Money;
 import pers.hubery.accountcenter.core.generator.IdGenerator;
-import pers.hubery.accountcenter.infra.dal.repository.AccountingRecordRepository;
+import pers.hubery.accountcenter.infra.dal.repository.AccountingLogRepository;
 
 import java.util.UUID;
 
@@ -27,7 +27,7 @@ public class AccountingRecordManager {
 
     /** 账务流水仓库 */
     @Autowired
-    private AccountingRecordRepository accountingRecordRepository;
+    private AccountingLogRepository accountingRecordRepository;
 
     /**
      * record
@@ -52,7 +52,7 @@ public class AccountingRecordManager {
         }
 
         //2. build record
-        AccountingRecord record = AccountingRecord.builder()
+        AccountingLog record = AccountingLog.builder()
                 .recordNo(idGenerator.genAccountingLogId())
                 .recordNo(UUID.randomUUID().toString())
                 .accountBook(command.getAccountBook())

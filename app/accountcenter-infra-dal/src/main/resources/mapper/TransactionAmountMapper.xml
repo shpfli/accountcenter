@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.hubery.accountcenter.infra.dal.mapper.TransactionAmountMapper">
+
+    <resultMap id="BaseResultMap" type="pers.hubery.accountcenter.infra.dal.domain.TransactionAmountDO">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="tenantId" column="tenant_id" jdbcType="VARCHAR"/>
+            <result property="xid" column="xid" jdbcType="VARCHAR"/>
+            <result property="accountBook" column="account_book" jdbcType="VARCHAR"/>
+            <result property="accountNo" column="account_no" jdbcType="VARCHAR"/>
+            <result property="balanceType" column="balance_type" jdbcType="VARCHAR"/>
+            <result property="amountType" column="amount_type" jdbcType="VARCHAR"/>
+            <result property="currency" column="currency" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="createdTime" column="created_time" jdbcType="BIGINT"/>
+            <result property="modifiedTime" column="modified_time" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,tenant_id,xid,
+        account_book,account_no,balance_type,
+        amount_type,currency,amount,
+        created_time,modified_time
+    </sql>
+</mapper>

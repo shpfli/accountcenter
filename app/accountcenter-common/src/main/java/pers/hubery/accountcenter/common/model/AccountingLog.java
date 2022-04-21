@@ -9,10 +9,10 @@ import java.util.Date;
  * accounting record
  *
  * @author LiPengfei
- * @version AccountingRecord.java v1.0 2022-04-10 22:49
+ * @version AccountingLog.java v1.0 2022-04-10 22:49
  */
 @Builder
-public class AccountingRecord {
+public class AccountingLog {
 
     /**
      * record no used to identify the record all through the bank

@@ -11,10 +11,10 @@ create table tcc_main_transaction
     xid          varchar(128) not null comment 'TCC事务 ID',
     account_book varchar(10)  not null comment 'account book, such as : deposit, loan, ……',
     status       char         not null comment '事务状态：P-预处理，R-已回滚，C-已提交',
-    create_time  bigint       null comment '创建时间（毫秒数）',
-    modify_time  bigint       null comment '修改时间（毫秒数）',
+    created_time  bigint       null comment '创建时间（毫秒数）',
+    modified_time  bigint       null comment '修改时间（毫秒数）',
     primary key (tenant_id, xid, account_book),
-    key idx_tcc_transaction_info (tenant_id, status, create_time)
+    key idx_tcc_transaction_info (tenant_id, status, created_time)
 )
     comment 'TCC 主事务表' charset = utf8mb4;
 
@@ -27,11 +27,11 @@ create table tcc_branch_transaction
     xid                varchar(128)   not null comment 'TCC main transaction ID',
     branch_id          bigint default null comment 'TCC branch transaction ID',
     account_book       varchar(10)    not null comment 'account book, such as : deposit, loan, ……',
-    acct_no            varchar(50)    not null comment 'account number',
+    account_no         varchar(50)    not null comment 'account number',
     balance_type       varchar(10)    not null comment 'balance type',
     account_date       varchar(8)     not null comment 'account date',
     business_timestamp bigint         not null comment 'the timestamp of the business happened',
-    ccy                varchar(3)     not null comment 'Currencies',
+    currency           varchar(3)     not null comment 'Currencies',
     action             varchar(8)     not null comment 'action type, such as: IN, OUT, FREEZE, UNFREEZE',
     amount             decimal(21, 4) not null comment 'changed amount',
     reference_no       varchar(32)    not null comment 'business reference number',
@@ -42,12 +42,32 @@ create table tcc_branch_transaction
     operator           varchar(8)     null comment 'operator',
     auth_user_id       varchar(8)     null comment 'authUserId',
     from_app_name      varchar(64)    null comment 'fromAppName',
-    create_timestamp   bigint         null comment 'create timestamp',
-    update_timestamp   bigint         null comment 'update timestamp',
+    created_time       bigint         null comment 'create timestamp',
+    modified_time      bigint         null comment 'update timestamp',
     unique key uk_bal_transaction_record (tenant_id, req_biz_no),
     key idx_bal_transaction_record (tenant_id, xid, account_book)
 )
     comment 'TCC 分支事务表' charset = utf8mb4;
+
+
+drop table if exists tcc_transaction_amount;
+create table tcc_transaction_amount
+(
+    id            bigint unsigned auto_increment comment 'id' primary key,
+    tenant_id     varchar(8)     not null comment '租户ID',
+    xid           varchar(128)   not null comment 'TCC main transaction ID',
+    account_book  varchar(10)    not null comment 'account book, such as : deposit, loan, ……',
+    account_no    varchar(50)    not null comment 'account number',
+    balance_type  varchar(10)    not null comment 'balance type',
+    amount_type   varchar(64)    not null comment 'amount type, such as : BR - reserved balance, BU - unreached balance, FR - reserved freeze amount for unfreeze, FU - unreached freeze amount',
+    currency      varchar(3)     not null comment 'Currencies',
+    amount        decimal(21, 2) not null comment 'amount',
+    created_time  bigint         null comment 'create timestamp',
+    modified_time bigint         null comment 'update timestamp',
+    unique key uk_tcc_transaction_amount (xid, account_book, account_no, balance_type, amount_type)
+)
+    comment 'account amount prepare record';
+
 
 drop table if exists acc_account;
 create table acc_account
@@ -137,10 +157,10 @@ create table acc_balance_statistics
     statistics_rule   varchar(8)  not null comment '统计规则：D-按日统计, M-按月统计, Y-按年统计, ……',
     statistics_period varchar(8)  not null comment '统计周期，例如按日统计时记录日期，按年统计时记录年份',
     currency          varchar(3)  not null comment '币种',
-    influx_count      bigint               default 0 comment '流入次数',
-    influx_amount     bigint               default 0 comment '流入金额',
-    outflux_count     bigint               default 0 comment '流出次数',
-    outflux_amount    bigint               default 0 comment '流出金额',
+    inflow_count      bigint               default 0 comment '流入次数',
+    inflow_amount     bigint               default 0 comment '流入金额',
+    outflow_count     bigint               default 0 comment '流出次数',
+    outflow_amount    bigint               default 0 comment '流出金额',
     end_balance       bigint               default 0 comment '期末余额',
     created_time      bigint      null comment '创建时间（毫秒数）',
     modified_time     bigint      null comment '修改时间（毫秒数）',
