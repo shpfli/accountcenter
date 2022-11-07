@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -73,6 +75,12 @@ public class AccountCenterDsConfiguration {
     private String logSlowSql;
 
     /**
+     * default timeout
+     */
+    @Value("${accountcenter.transaction.template.default.timeout:3}")
+    private int timeout;
+
+    /**
      * 定义 accountcenterDataSource
      *
      * @return accountcenterDataSource
@@ -117,8 +125,20 @@ public class AccountCenterDsConfiguration {
     }
 
     @Bean(name = "accountcenterTransactionManager")
-    public TransactionManager transactionManager(@Qualifier("accountcenterDataSource") DataSource dataSource) {
+    public PlatformTransactionManager transactionManager(@Qualifier("accountcenterDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
+    /**
+     * 默认事务模板，传播特性为REQUIRED
+     *
+     * @return TransactionTemplate
+     */
+    @Bean(name = "transactionTemplate")
+    public TransactionTemplate transactionTemplate(@Qualifier("accountcenterTransactionManager")
+                                                           PlatformTransactionManager transactionManager) {
+        final TransactionTemplate t = new TransactionTemplate(transactionManager);
+        t.setTimeout(timeout);
+        return t;
+    }
 }
