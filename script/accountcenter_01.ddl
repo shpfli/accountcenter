@@ -1,11 +1,11 @@
-drop database if exists accountcenter;
-create database accountcenter;
+drop database if exists accountcenter_01;
+create database accountcenter_01;
 
-use accountcenter;
+use accountcenter_01;
 
 
-drop table if exists tcc_main_transaction;
-create table tcc_main_transaction
+drop table if exists tcc_main_transaction_01;
+create table tcc_main_transaction_01
 (
     tenant_id     varchar(8)   not null comment '租户ID',
     xid           varchar(128) not null comment 'TCC事务 ID',
@@ -14,12 +14,12 @@ create table tcc_main_transaction
     created_time  bigint       null comment '创建时间（毫秒数）',
     modified_time bigint       null comment '修改时间（毫秒数）',
     primary key (tenant_id, xid, account_book),
-    key idx_tcc_transaction_info (tenant_id, status, created_time)
+    key idx_tcc_main_transaction_01 (tenant_id, status, created_time)
 )
     comment 'TCC 主事务表' charset = utf8mb4;
 
-drop table if exists tcc_branch_transaction;
-create table tcc_branch_transaction
+drop table if exists tcc_branch_transaction_01;
+create table tcc_branch_transaction_01
 (
     id                    bigint unsigned auto_increment comment 'id' primary key,
     tenant_id             varchar(8)     not null comment '租户ID',
@@ -47,14 +47,14 @@ create table tcc_branch_transaction
     memo                  varchar(128)   null comment '备注',
     created_time          bigint         null comment '创建时间（毫秒数）',
     modified_time         bigint         null comment '修改时间（毫秒数）',
-    unique key uk_bal_transaction_record (tenant_id, request_unique_id),
-    key idx_bal_transaction_record (tenant_id, account_book, xid)
+    unique key uk_tcc_branch_transaction_01 (tenant_id, request_unique_id),
+    key idx_tcc_branch_transaction_01 (tenant_id, account_book, xid)
 )
     comment 'TCC 分支事务表' charset = utf8mb4;
 
 
-drop table if exists tcc_transaction_amount;
-create table tcc_transaction_amount
+drop table if exists tcc_transaction_amount_01;
+create table tcc_transaction_amount_01
 (
     id            bigint unsigned auto_increment comment 'id' primary key,
     tenant_id     varchar(8)     not null comment '租户ID',
@@ -67,13 +67,13 @@ create table tcc_transaction_amount
     amount        decimal(21, 2) not null comment 'amount',
     created_time  bigint         null comment '创建时间（毫秒数）',
     modified_time bigint         null comment '修改时间（毫秒数）',
-    unique key uk_tcc_transaction_amount (xid, account_book, account_no, balance_type, amount_type)
+    unique key uk_tcc_transaction_amount_01 (xid, account_book, account_no, balance_type, amount_type)
 )
     comment 'account amount prepare record';
 
 
-drop table if exists acc_accounting_command;
-create table acc_accounting_command
+drop table if exists acc_accounting_command_01;
+create table acc_accounting_command_01
 (
     id                bigint unsigned auto_increment comment 'id' primary key,
     tenant_id         varchar(8)     not null comment '租户ID',
@@ -102,13 +102,13 @@ create table acc_accounting_command
     memo              varchar(128)   null comment '备注',
     created_time      bigint         null comment '创建时间（毫秒数）',
     modified_time     bigint         null comment '修改时间（毫秒数）',
-    unique key uk_bal_transaction_record (tenant_id, request_unique_id),
-    key idx_bal_transaction_record (tenant_id, account_book, xid)
+    unique key uk_acc_accounting_command_01 (tenant_id, request_unique_id),
+    key idx_acc_accounting_command_01 (tenant_id, account_book, xid)
 )
     comment 'TCC 分支事务表' charset = utf8mb4;
 
-drop table if exists acc_account;
-create table acc_account
+drop table if exists acc_account_01;
+create table acc_account_01
 (
     tenant_id      varchar(8)  not null comment '租户ID',
     account_book   varchar(16) not null comment '账本/账户产品码',
@@ -118,13 +118,13 @@ create table acc_account
     client_no      varchar(16) null comment '客户号',
     created_time   bigint      null comment '创建时间（毫秒数）',
     modified_time  bigint      null comment '修改时间（毫秒数）',
-    unique key uk_account (tenant_id, account_book, account_no)
+    unique key uk_acc_account_01 (tenant_id, account_book, account_no)
 )
     comment '账户表';
 
 
-drop table if exists acc_account_rel;
-create table acc_account_rel
+drop table if exists acc_account_rel_01;
+create table acc_account_rel_01
 (
     id                  bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id           varchar(8)  not null comment '租户ID',
@@ -134,13 +134,13 @@ create table acc_account_rel
     linkage_mode        varchar(16) null comment '联动模式：SYNC-同步联动，ASYNC-异步联动',
     created_time        bigint      null comment '创建时间（毫秒数）',
     modified_time       bigint      null comment '修改时间（毫秒数）',
-    unique key uk_account_rel (tenant_id, account_book, account_no),
-    key idx_account_rel_superior (tenant_id, account_book, superior_account_no)
+    unique key uk_acc_account_rel_01 (tenant_id, account_book, account_no),
+    key idx_acc_account_rel_01 (tenant_id, account_book, superior_account_no)
 )
     comment '账户关系表';
 
-drop table if exists acc_balance;
-create table acc_balance
+drop table if exists acc_balance_0;
+create table acc_balance_0
 (
     id                   bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id            varchar(8)  not null comment '租户ID',
@@ -158,12 +158,12 @@ create table acc_balance
     last_accounting_time bigint      null comment '最后一次余额变动时间',
     created_time         bigint      null comment '创建时间（毫秒数）',
     modified_time        bigint      null comment '修改时间（毫秒数）',
-    unique key uk_balance (tenant_id, account_book, account_no, balance_type)
+    unique key uk_acc_balance_0 (tenant_id, account_book, account_no, balance_type)
 )
     comment '账户余额表';
 
-drop table if exists acc_freeze_order;
-create table acc_freeze_order
+drop table if exists acc_freeze_order_01;
+create table acc_freeze_order_01
 (
     id                     bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id              varchar(8)  not null comment '租户ID',
@@ -177,14 +177,14 @@ create table acc_freeze_order
     reserved_freeze_amount bigint               default 0 comment '预留冻结金额，即准备解冻的金额',
     created_time           bigint      null comment '创建时间（毫秒数）',
     modified_time          bigint      null comment '修改时间（毫秒数）',
-    unique key uk_freeze_order (tenant_id, account_book, account_no, balance_type, freeze_type, freeze_order_no)
+    unique key uk_acc_freeze_order_01 (tenant_id, account_book, account_no, balance_type, freeze_type, freeze_order_no)
 )
     comment '账户余额表';
 
 
 
-drop table if exists acc_balance_statistics;
-create table acc_balance_statistics
+drop table if exists acc_balance_statistics_01;
+create table acc_balance_statistics_01
 (
     id                bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id         varchar(8)  not null comment '租户ID',
@@ -201,13 +201,13 @@ create table acc_balance_statistics
     end_balance       bigint               default 0 comment '期末余额',
     created_time      bigint      null comment '创建时间（毫秒数）',
     modified_time     bigint      null comment '修改时间（毫秒数）',
-    unique key uk_balance_statistics (tenant_id, account_book, account_no, balance_type, statistics_rule, statistics_period)
+    unique key uk_acc_balance_statistics_01 (tenant_id, account_book, account_no, balance_type, statistics_rule, statistics_period)
 )
     comment '账户余额变动统计表';
 
 
-drop table if exists acc_accounting_log;
-create table acc_accounting_log
+drop table if exists acc_accounting_log_01;
+create table acc_accounting_log_01
 (
     id                    bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id             varchar(8)   not null comment '租户ID',
@@ -234,16 +234,16 @@ create table acc_accounting_log
     memo                  varchar(128) null comment '备注',
     created_time          bigint       null comment '创建时间（毫秒数）',
     modified_time         bigint       null comment '修改时间（毫秒数）',
-    unique key uk_balance (tenant_id, accounting_log_id),
-    unique key uk_balance_req (tenant_id, request_unique_id),
-    key idx_balance (tenant_id, account_book, account_no, balance_type, accounting_time),
-    key idx_balance_trans_seq_no (tenant_id, trans_seq_no)
+    unique key uk_acc_accounting_log_01 (tenant_id, accounting_log_id),
+    unique key uk_acc_accounting_log_req_01 (tenant_id, request_unique_id),
+    key idx_acc_accounting_log_01 (tenant_id, account_book, account_no, balance_type, accounting_time),
+    key idx_acc_accounting_log_trans_seq_no_01 (tenant_id, trans_seq_no)
 )
     comment '账务流水表';
 
 
-drop table if exists acc_freeze_log;
-create table acc_freeze_log
+drop table if exists acc_freeze_log_01;
+create table acc_freeze_log_01
 (
     id                  bigint auto_increment primary key comment '自增物理主键，业务不得使用',
     tenant_id           varchar(8)   not null comment '租户ID',
@@ -271,9 +271,9 @@ create table acc_freeze_log
     memo                varchar(128) null comment '备注',
     created_time        bigint       null comment '创建时间（毫秒数）',
     modified_time       bigint       null comment '修改时间（毫秒数）',
-    unique key uk_freeze_log (tenant_id, freeze_log_id),
-    unique key uk_freeze_log_req (tenant_id, request_unique_id),
-    key idx_freeze_log (tenant_id, account_book, account_no, balance_type, freeze_type, freeze_order_no, freeze_time),
-    key idx_freeze_log_trans_seq_no (tenant_id, trans_seq_no)
+    unique key uk_acc_freeze_log_01 (tenant_id, freeze_log_id),
+    unique key uk_acc_freeze_log_req_01 (tenant_id, request_unique_id),
+    key idx_acc_freeze_log_01 (tenant_id, account_book, account_no, balance_type, freeze_type, freeze_order_no, freeze_time),
+    key idx_acc_freeze_log_trans_seq_no_01 (tenant_id, trans_seq_no)
 )
     comment '冻结流水表';

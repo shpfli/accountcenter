@@ -43,6 +43,18 @@ public final class Money implements Serializable, Comparable<Money>, Cloneable {
         this.cent = LongCalculator.round(amount.movePointRight(this.currency.getDefaultFractionDigits()), DEFAULT_ROUNDING_MODE);
     }
 
+
+    /**
+     * 构造器
+     *
+     * @param amount       long类型金额
+     * @param currencyCode 币种 code，例如：CNY
+     */
+    public Money(long amount, String currencyCode) {
+        this.setCurrencyCode(currencyCode);
+        this.cent = amount;
+    }
+
     /**
      * 构造器
      *
@@ -74,6 +86,7 @@ public final class Money implements Serializable, Comparable<Money>, Cloneable {
         this.setCurrency(currency);
         this.cent = LongCalculator.round(amount.movePointRight(currency.getDefaultFractionDigits()), roundingMode);
     }
+
 
     /**
      * 以指定 cent 创建相同币种的 Money 对象

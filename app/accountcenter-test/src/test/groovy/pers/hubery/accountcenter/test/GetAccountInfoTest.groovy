@@ -13,7 +13,7 @@ import spock.lang.Unroll
  * @version GetAccountInfoTest.java v1.0 2022-03-28 00:15
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = [AccountcenterApplication])
-public class GetAccountInfoTest extends Specification {
+class GetAccountInfoTest extends Specification {
 
     @Autowired
     AccountQueryFacade accountQueryFacade;
@@ -33,7 +33,7 @@ public class GetAccountInfoTest extends Specification {
         }
 
         where: "测试场景"
-        caseDesc | tenantId | accountBook | shardingIndex | accountNo                          | isSuccess
-        "正常用例"   | "TEST"   | "DEPOSIT"   | "00"          | "00000000000000000000000000000000" | true
+        caseDesc   | tenantId | accountBook | shardingIndex | accountNo                          | isSuccess
+        "正常用例" | "00000000"   | "DEPOSIT"   | "00"          | "00000000000000000000000000000000" | true
     }
 }
