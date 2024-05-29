@@ -16,15 +16,15 @@ import spock.lang.Unroll
 class GetAccountInfoTest extends Specification {
 
     @Autowired
-    AccountQueryFacade accountQueryFacade;
+    AccountQueryFacade accountQueryFacade
 
     @Unroll
     def getAccountInfo() {
 
         when:
-        def request = new AccountQueryRequest(tenantId: tenantId, accountBook: accountBook, accountNo: accountNo, shardingIndex: shardingIndex);
+        def request = new AccountQueryRequest(tenantId: tenantId, accountBook: accountBook, accountNo: accountNo, shardingIndex: shardingIndex)
 
-        def response = accountQueryFacade.getAccountInfo(request);
+        def response = accountQueryFacade.getAccountInfo(request)
 
         then:
 
