@@ -22,7 +22,7 @@ public interface AccountMapper {
      * @param accountNo   账号
      * @return 账户DO
      */
-    @Select("select id, tenant_id, account_book, account_no, account_status, limited_status, client_no, created_time, modified_time"
+    @Select("select tenant_id, account_book, account_no, account_status, limited_status, client_no, created_time, modified_time"
             + " from acc_account "
             + "where tenant_id = #{tenantId} and account_book = #{accountBook} and account_no = #{accountNo}")
     AccountDO get(@Param("tenantId") String tenantId, @Param("accountBook") String accountBook, @Param("accountNo") String accountNo);

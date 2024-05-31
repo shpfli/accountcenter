@@ -14,11 +14,6 @@ import java.io.Serializable;
 public class AccountDO implements Serializable {
 
     /**
-     * 自增物理主键，业务不得使用
-     */
-    private Long id;
-
-    /**
      * 租户ID
      */
     private String tenantId;
@@ -59,20 +54,6 @@ public class AccountDO implements Serializable {
     private Long modifiedTime;
 
     private static final long serialVersionUID = 1L;
-
-    /**
-     * 自增物理主键，业务不得使用
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * 自增物理主键，业务不得使用
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     /**
      * 租户ID

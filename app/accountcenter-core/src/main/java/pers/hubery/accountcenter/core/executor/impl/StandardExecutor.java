@@ -27,15 +27,21 @@ import java.util.Objects;
 @Component("standardExecutor")
 public class StandardExecutor implements AccountingExecutor {
 
-    /** systemAmountManager */
+    /**
+     * systemAmountManager
+     */
     @Autowired
     private SystemAmountManager systemAmountManager;
 
-    /** balanceManager */
+    /**
+     * balanceManager
+     */
     @Autowired
     private BalanceManager balanceManager;
 
-    /** accountingRecordManager */
+    /**
+     * accountingRecordManager
+     */
     @Autowired
     private AccountingRecordManager accountingRecordManager;
 
@@ -258,7 +264,7 @@ public class StandardExecutor implements AccountingExecutor {
      */
     @Override
     public void freeze(final Balance balance, final AccountingCommand command) {
-
+        //TODO Freeze
     }
 
     /**
@@ -269,7 +275,7 @@ public class StandardExecutor implements AccountingExecutor {
      */
     @Override
     public void unfreeze(final Balance balance, final AccountingCommand command) {
-
+        //TODO unfreeze
     }
 
     /**
